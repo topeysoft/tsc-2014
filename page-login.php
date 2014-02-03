@@ -17,7 +17,7 @@ if ( is_user_logged_in() ){
 		wp_redirect(site_url("/my-account"));
 		exit;
 }
-
+$user="";
 	//function tsc_custom_login() {
 	if(isset($_POST["user-cookie"])){
 	$creds = array();
@@ -55,7 +55,7 @@ get_header(); ?>
                 <div id="primary" class="content-area col-xs-10 col-xs-push-1 col-sm-push-0 col-sm-12 col-md-10">
                 
                 <header class="page-header">
-                    <h3 class="page-title"><?php echo get_the_title($ID); ?> </h3>
+                    <h3 class="page-title"><?php echo get_the_title(); ?> </h3>
                 </header>
                 <?php
                         if ( is_wp_error($user) ):

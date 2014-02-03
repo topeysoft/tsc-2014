@@ -7,7 +7,7 @@
  * @since Twenty Fourteen 1.0
  */
 ?>
-<div id="tsc_home_carousel" class="carousel slide" data-ride="carousel" style="margin-top:-20px;"><!-- tsc_home_carousel -->
+<div id="tsc_home_carousel" class="carousel slide" data-ride="carousel" style="margin-top:-20px; width:100%; "><!-- tsc_home_carousel -->
   
   
   <?php 
@@ -76,4 +76,12 @@
     <span class="glyphicon glyphicon-chevron-right fa fa-long-arrow-right fa-lg"></span>
   </a>
 
-</div><!-- #secondary -->
+</div><!-- #secondary 
+<style>
+	.site-main {
+		background-color:#f1f1f1;
+		z-index:5000;
+	}
+</style>
+<div style="margin-top:500px; height:10px; background:#900; position:relative;"  ></div>
+-->

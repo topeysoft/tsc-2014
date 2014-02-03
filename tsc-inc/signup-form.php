@@ -20,7 +20,7 @@
                 	<br />
 
                 </p>
-					<?php $register = $_GET['register']; if($register == true) { echo '<p>Check your email for the password!</p>'; } ?>
+					<?php $register =isset( $_GET['register'])? $_GET['register']:""; if($register == true) { echo '<p>Check your email for the password!</p>'; } ?>
 					<input type="hidden" name="redirect_to" value="<?php echo !empty($redirect_to)?$redirect_to:site_url()/*$_SERVER['REQUEST_URI']*/; ?>?register=true" />
 					<input type="hidden" name="user-cookie" value="1" />
 				</div>

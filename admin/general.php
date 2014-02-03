@@ -4,7 +4,7 @@
                 <td>
                   
                     <input id="upload_logo_button" type="button" class="button" value="<?php _e( 'Upload Logo', 'topeysoft' ); ?>" /> 
-                    <input id="tsc_logo_url" name="sa_options[site_logo]" type="text" value="<?php  esc_attr_e($settings['site_logo']); ?>" /><br>
+                    <input id="tsc_logo_url" name="sa_options[site_logo]" type="hidden" value="<?php  esc_attr_e($settings['site_logo']); ?>" /><br>
 
                     <img id="tsc_logo_preview" src="<?php  esc_attr_e($settings['site_logo']); ?>" style="max-height:40px" />
                 </td>
@@ -12,7 +12,7 @@
                  <tr valign="top"><th scope="row"><label for="tsc_icon_url">Website favicon</label></th>
                 <td>
                 <input id="upload_icon_button" type="button" class="button" value="<?php _e( 'Upload Icon', 'topeysoft' ); ?>" /> 
-                <input id="tsc_icon_url" name="sa_options[site_icon]" type="text" value="<?php  esc_attr_e($settings['site_icon']); ?>" />
+                <input id="tsc_icon_url" name="sa_options[site_icon]" type="hidden" value="<?php  esc_attr_e($settings['site_icon']); ?>" />
                 <br>
 
                 <img id="tsc_icon_preview" src="<?php  esc_attr_e($settings['site_icon']); ?>" style="max-height:20px" />

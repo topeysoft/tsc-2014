@@ -1,18 +1,18 @@
-<?php global $redirect_to, $reset_link;
+<?php global $redirect_to, $reset_link, $user_login;
 
 ?><form method="post" action="<?php echo  site_url('/login') ?>" data-action="<?php echo site_url("ajax/?_request=login-form") ?>" class="wp-user-form">
 				<div class="username">
 					<label for="user_login"><?php _e('Username or Email'); ?>: </label>
-					<input type="text" name="log" value="<?php echo esc_attr(stripslashes($user_login)); ?>" size="20" id="user_login" tabindex="11" />
+					<input type="text" name="log"  value="<?php echo esc_attr(stripslashes($user_login)); ?>" size="20" id="user_login" tabindex="11" autofocus required="required"/>
 				</div>
 				<div class="password">
 					<label for="user_pass"><?php _e('Password'); ?>: </label>
-					<input type="password" name="pwd" value="" size="20" id="user_pass" tabindex="12" />
+					<input type="password"  name="pwd" value="" size="20" id="user_pass" tabindex="12" required="required"/>
 				</div>
 				<div class="login_fields">
 					<div class="rememberme">
 						<label for="rememberme">
-							<input type="checkbox" name="rememberme" value="forever" checked="checked" id="rememberme" tabindex="13" /> Remember me
+							<input type="checkbox" name="rememberme" value="forever" checked="checked" id="rememberme" tabindex="13"  /> Remember me
 						</label>
 					</div>
 					<?php do_action('login_form'); ?>

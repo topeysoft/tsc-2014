@@ -5,7 +5,10 @@
              data-action="<?php echo site_url("ajax/?_request=reset-form") ?>"
              class="wp-user-form">
 				<div class="username">
-					<label for="user_login" class="hide"><?php _e('Username or Email'); ?>: </label>
+                
+					<div class="" style="text-align:left;">
+                    <label for="user_login" class=""><?php _e('Username or Email'); ?>: </label>
+                    </div>
 					<input type="text" name="user_login" value="" size="20" id="user_login" tabindex="1001" />
                     <input type="hidden" name="action" value="tsc_pwd_reset" />
 					<input type="hidden" name="tsc_pwd_nonce" value="<?php echo wp_create_nonce("tsc_pwd_nonce"); ?>" />

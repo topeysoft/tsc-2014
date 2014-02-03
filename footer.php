@@ -8,7 +8,7 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
- $settings = get_option( 'sa_options', $sa_options ); 
+ $settings = get_option( 'sa_options' ); 
 	?>
     <div class="col-xs-12  go-to-top-parent"> 
 		
@@ -22,7 +22,7 @@
              	<?php echo $settings["google_adsense"]; ?>
              </div>
 	</div><!-- /.row -->
-			<!--</div> #page -->
+			</div><!-- #page -->
 
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">

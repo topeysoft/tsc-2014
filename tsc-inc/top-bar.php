@@ -1,14 +1,20 @@
+<?php
+
+global $current_user;
+
+ if ( wp_is_mobile() ) { ?>
 <div class="snap-drawers">
             
-<?php include('snap-menu-left.php') ?>
+<?php //include('snap-menu-left.php') ?>
 
 </div>
+<?php }?>
 
 	
 
-<div id="snap-content" class="hfeed site">
+<div id="wrap" class="hfeed site">
 <?php //if ( get_header_image() ) : ?>
-	<div id="site-header" class="top-nav navbar navbar-default yamm navbar-static-top navbar-with-drop-shadow-1 <?php echo $navbar_has_border?" border-bottom-3":""; ?> border-blue">
+	<div id="site-header" class="top-nav navbar navbar-default yamm navbar-fixed-top navbar-with-drop-shadow-1 <?php echo $navbar_has_border?" border-bottom-3":""; ?> border-blue">
 		<!--<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
 		</a>--->
@@ -54,9 +60,9 @@
 					'.$sidebar.'
 				</div>';
 				$shop_by_menu='<a href="#" class="dropdown-toggle"  data-toggle="dropdown">Shop by <span class="caret"></span></a>';
-				$my_account_menu='<a href="#" class="dropdown-toggle"  data-toggle="dropdown"><span class="fa fa-user"></span> My Account <span class="caret"></span></a>';
+				$my_account_menu='<span class="">'.get_avatar( $current_user->ID, 20 ).'</span><span class="caret"></span>';
 				$log_in_menu='<a href="#" class="dropdown-toggle"  data-toggle="dropdown"><span class="fa fa-lock"></span> Login / Register <span class="caret"></span></a>';
-				$cart_menu='<a href="#" class="dropdown-toggle"  data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> Cart '.$badge.' <i class="caret"></i></a>
+				$cart_menu='<a href="#" class="dropdown-toggle"  data-toggle="dropdown"><i class="fa fa-gear"></i><i class="caret"></i></a>
 				'.$cart_preview;
 				$the_menu="";
 				$login_url=!is_user_logged_in()?'<li class=""><a href="#login-topeysoft" data-type="ajax" data-source="'.home_url("/ajax/?_request=login-form").'"  class="">
@@ -65,7 +71,7 @@
 						array( 
 							'theme_location' => 'primary',//'top-logged-in-left',
 							"container"=>false, 
-							'menu_class' => 'top-menu nav navbar-nav',
+							'menu_class' => 'top-menu nav navbar-nav hidden-sm',
 							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s'.$login_url.'</ul>',
 							"walker"=>new Dropdown_Wrap(),
 							"echo"=>false
@@ -78,14 +84,23 @@
 					$shop_by_menu,
 					$the_menu
 				);
+				$the_menu= str_replace(
+					'active',
+					"",
+					$the_menu
+				);
 				
 				echo $the_menu;
-				
+				?>
+                <div class="navbar-form navbar-left hidden-xs" style="width:400px;" >
+				<?php get_search_form(); ?>
+                </div>
+                <?php
                 if ( is_user_logged_in() ) {
                     $menu= wp_nav_menu( array( 'theme_location' => 'top-logged-in-right',"echo"=>false, 'menu_class' => 'top-menu nav navbar-nav navbar-right', "walker"=>new Dropdown_Wrap() ) );
                   
 					$menu=str_replace(
-					'<a href="#">{my_account}</a>',
+					'{my_account}',
 					$my_account_menu,
 					$menu
 					);  
@@ -103,6 +118,11 @@
 					$cart_menu,
 					$menu
 					);
+				$menu= str_replace(
+					'active',
+					"",
+					$menu
+				);
 				echo $menu;
                 ?>
             </div>

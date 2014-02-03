@@ -1,4 +1,6 @@
  <?php
+ $user_id=NULL;
+ $user_data=NULL;
  if(isset($_POST["user-cookie"])){
 	 if ( isset($_POST["user_email"]) && isset($_POST["user_password"]) ) {
 

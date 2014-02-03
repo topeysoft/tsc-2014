@@ -14,10 +14,15 @@
  * @since Twenty Fourteen 1.0
  */
 	wp_logout();
-	  
+if (!is_user_logged_in()){
+	if(isset($_GET['redirect_to'])){
+		wp_redirect($_GET['redirect_to']);
+		exit;
+	}
+}
 if ( is_user_logged_in() ){
-	
-		wp_redirect(home_url("/logout"));
+	if(isset($_GET['redirect_to'])) $red="?redirect_to=".$_GET['redirect_to'];
+		wp_redirect(home_url("/logout".$red));
 		exit;
 }
 get_header(); ?>
@@ -29,7 +34,7 @@ get_header(); ?>
                 <div id="primary" class="content-area col-xs-10 col-xs-push-1 col-sm-push-0 col-sm-12 col-md-10">
                 
                 <header class="page-header">
-                    <h3 class="page-title color-orange"><?php echo get_the_title($ID); ?> </h3>
+                    <h3 class="page-title color-orange"><?php echo get_the_title(); ?> </h3>
                 </header>
                 <div class="alert alert-dismissible tsc-message-box card-like tsc-message tsc-warning">
                 		<a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>

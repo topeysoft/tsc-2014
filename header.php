@@ -14,7 +14,7 @@
 	 
 	$navbar_has_border  =true;
  }
-$tsc_settings = get_option( 'sa_options', $sa_options ); 
+$tsc_settings = get_option( 'sa_options' ); 
 
 ?><!DOCTYPE html>
 <!--[if IE 7]>
@@ -28,7 +28,12 @@ $tsc_settings = get_option( 'sa_options', $sa_options );
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+    <?php if ( wp_is_mobile() ) { ?>
+	<meta name="viewport" content="width=device-width  initial-scale=1.0, maximum-scale=1.0, user-scalable=0'">
+	<?php }else{ ?>
+	<meta name="viewport" content="width=device-width ">
+	<?php } ?>
+    
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -55,7 +60,7 @@ $tsc_settings = get_option( 'sa_options', $sa_options );
 
 <?php include("tsc-inc/top-bar.php"); ?>
     
-    <div class="container">
+    <!--<div class="container">
 		<div class="row <?php echo !empty($home_slider)? "hide":"" ?>">
         	<div class="site-title col-xs-12 col-sm-4 col-md-3 col-lg-3" style="min-height:100px;">
            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -87,24 +92,30 @@ $tsc_settings = get_option( 'sa_options', $sa_options );
 				?></a>
              </div>
              <div class="site-title hidden-xs  col-xs-12 col-sm-4 col-md-6 col-lg-6" >
-             	<?php echo $tsc_settings["google_adsense"]; ?>
+             	<?php //echo $tsc_settings["google_adsense"]; ?>
              </div>
         
-    <div id="search-container " class="hidden-xs show search-box-wrapper col-xs-12 col-sm-4 col-md-3">
+ <!--   <div id="search-container " class="hidden-xs show search-box-wrapper col-xs-12 col-sm-4 col-md-3">
 		
         	<div class="search-box">
-				<?php get_search_form(); ?>
+				<?php //get_search_form(); ?>
 			</div>
        
-		</div>
+		</div> 
         </div>
-  	 </div>
-     <div style="margin-top:10px"></div>
+  	 </div>-->
+     <div style="margin-top:5px"></div>
 	<? // get_template_part("tsc-inc/masthead") ?>
 
 	<div id="main" class="site-main container">
     	<div class="row">
-        	<div class="hidden-xs col-sm-3 col-md-3">
+       
+        	<div class="hidden-xs_1 col-sm-3 col-md-3 tsc-left-menu">
+            <img  style="max-height:60px; margin:0; padding:0;" 
+             class="img-responsive" alt="<?php bloginfo( 'name' ); ?>" 
+             src="<?php echo $tsc_settings["site_logo"]; ?>" />
+
        			<?php dynamic_sidebar( 'sidebar-1' ); ?>
        		</div>
+             <div class="tsc-menu-overlay"></div>
     	

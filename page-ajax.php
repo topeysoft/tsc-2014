@@ -1,8 +1,4 @@
-<script>
-$(function(){
-		_init();
-});
-</script>
+
 <?php
 	if(empty($_REQUEST["_request"]))
 		return;
@@ -62,3 +58,9 @@ $(function(){
         <?php
 		endif;
 ?>
+<script>
+
+	
+		window._init();
+
+</script>

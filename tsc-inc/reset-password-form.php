@@ -1,5 +1,5 @@
 <?php global $user_email, $user_login; $redirect_to ?>
-<form name="resetpassform" id="resetpassform" action="<?php echo esc_url(home_url('reset-password?key=' . urlencode( $_GET['key'] ) . '&login=' . urlencode( $_GET['login'] ), 'login_post' ) ); ?>" method="post" 
+<form name="resetpassform" id="resetpassform" action="<?php echo esc_url(home_url('reset-password?key=' . urlencode( $_GET['key'] ) . '&login=' . urlencode( $_GET['login'] )) ); ?>" method="post" 
 autocomplete="off">
 	<input type="hidden" id="user_login" value="<?php echo esc_attr( $_GET['login'] ); ?>" autocomplete="off" />
 

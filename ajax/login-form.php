@@ -1,5 +1,6 @@
 <?php 
 	//function tsc_custom_login() {
+		$user="";
 	if(isset($_POST["user-cookie"])){
 	$creds = array();
 	$creds['user_login'] = esc_attr($_POST['log']);

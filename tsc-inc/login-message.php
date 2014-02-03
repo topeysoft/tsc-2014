@@ -1,4 +1,7 @@
-<?php $register = $_GET['register']; $reset = $_GET['reset']; if ($register == true) { ?>
+<?php 
+$register = isset($_GET['register'])?$_GET['register']:""; 
+$reset = isset($_GET['reset'])?$_GET['reset']:""; 
+if ($register == true) { ?>
 
 			<div class="message-box card-like tsc-info">
             	<h4 >Success!</h4>
